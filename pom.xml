@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">  
+    <modelVersion>4.0.0</modelVersion>  
+    <groupId>com.codefans</groupId>  
+    <artifactId>deep-in-bytecode</artifactId>  
+    <version>1.0.0-SNAPSHOT</version>  
+    <packaging>pom</packaging>  
+    <name>deep-in-bytecode</name>  
+    <modules> 
+        <module>java-agent</module>  
+        <module>bytecode-performance</module>  
+        <module>bytecode-javassist</module>  
+        <module>bytecode-asm</module>  
+        <module>bytecode-cglib</module> 
+        <module>bytecode-common</module>
+        <module>app-classloader</module>
+    </modules>
+    <properties> 
+        <maven.deploy.skip>true</maven.deploy.skip>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+
+            <dependency>
+                <groupId>com.codefans</groupId>
+                <artifactId>bytecode-common</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.codefans</groupId>
+                <artifactId>bytecode-javassist</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.codefans</groupId>
+                <artifactId>bytecode-asm</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.codefans</groupId>
+                <artifactId>bytecode-cglib</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.codefans</groupId>
+                <artifactId>app-classloader</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.javassist</groupId>
+                <artifactId>javassist</artifactId>
+                <version>3.27.0-GA</version>
+            </dependency>
+            <dependency>
+                <groupId>org.ow2.asm</groupId>
+                <artifactId>asm</artifactId>
+                <version>7.2</version>
+            </dependency>
+            <dependency>
+                <groupId>cglib</groupId>
+                <artifactId>cglib</artifactId>
+                <version>3.2.5</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+                <version>1.18.12</version>
+                <scope>provided</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>junit</groupId>
+                <artifactId>junit</artifactId>
+                <version>4.13</version>
+                <scope>test</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>1.7.30</version>
+            </dependency>
+
+
+        </dependencies>
+    </dependencyManagement>
+
+    <build> 
+        <finalName>${project.artifactId}</finalName>  
+        <plugins> 
+            <plugin> 
+                <groupId>org.apache.maven.plugins</groupId>  
+                <artifactId>maven-compiler-plugin</artifactId>  
+                <version>3.7.0</version>  
+                <configuration>
+                    <source>1.8</source>  
+                    <encoding>UTF8</encoding>  
+                    <target>1.8</target> 
+                </configuration> 
+            </plugin>  
+            <plugin> 
+                <artifactId>maven-source-plugin</artifactId>  
+                <version>2.4</version>  
+                <configuration> 
+                    <attach>true</attach> 
+                </configuration>  
+                <executions> 
+                    <execution> 
+                        <phase>compile</phase>  
+                        <goals> 
+                            <goal>jar</goal> 
+                        </goals> 
+                    </execution> 
+                </executions> 
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.2.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                        </manifest>
+                        <manifestEntries>
+                            <Premain-Class>com.javaagent.JdPlusAgent</Premain-Class>
+                            <Can-Redefine-Classes>true</Can-Redefine-Classes>
+                            <Can-Retransform-Classes>true</Can-Retransform-Classes>
+                        </manifestEntries>
+                    </archive>
+                </configuration>
+            </plugin>
+
+        </plugins>  
+        <resources> 
+            <resource> 
+                <directory>src/main/resources</directory>  
+                <filtering>true</filtering> 
+            </resource> 
+        </resources> 
+    </build>  
+    <profiles> 
+        <profile> 
+            <id>dev</id>  
+            <properties> 
+                <env>dev</env> 
+            </properties> 
+        </profile>  
+        <profile> 
+            <id>test</id>  
+            <properties> 
+                <null>test</null> 
+            </properties> 
+        </profile>  
+        <profile> 
+            <id>product</id>  
+            <properties> 
+                <product>product</product> 
+            </properties> 
+        </profile> 
+    </profiles> 
+</project>

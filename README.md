@@ -1,2 +1,2 @@
 # deep-in-bytecode
-bytecode test
+deep in bytecode

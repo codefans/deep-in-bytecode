@@ -24,10 +24,10 @@
             <artifactId>bytecode-javassist</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>com.codefans</groupId>
-            <artifactId>bytecode-asm</artifactId>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>com.codefans</groupId>-->
+<!--            <artifactId>bytecode-asm</artifactId>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>com.codefans</groupId>
@@ -42,6 +42,11 @@
             <groupId>org.ow2.asm</groupId>
             <artifactId>asm</artifactId>
         </dependency>
+        <dependency>
+            <groupId>org.ow2.asm</groupId>
+            <artifactId>asm-all</artifactId>
+        </dependency>
+
         <dependency>
             <groupId>cglib</groupId>
             <artifactId>cglib</artifactId>
@@ -64,74 +69,107 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>com.sun</groupId>
+            <artifactId>tools</artifactId>
+            <version>1.8.0</version>
+            <scope>system</scope>
+            <systemPath>D:/Development/Java/jdk1.8.0_221-x64/lib/tools.jar</systemPath>
+        </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-shade-plugin</artifactId>
-                <version>3.2.4</version>
-                <executions>
-                    <execution>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>shade</goal>
-                        </goals>
-                        <configuration>
-                            <filters>
-                                <filter>
-                                    <artifact>*:*</artifact>
-                                    <excludes>
-                                        <exclude>META-INF/*.SF</exclude>
-                                        <exclude>META-INF/*.DSA</exclude>
-                                        <exclude>META-INF/*.RSA</exclude>
-                                    </excludes>
-                                </filter>
-                            </filters>
-                            <transformers>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
-                                    <!-- 程序主入口 -->
-                                    <mainClass>com.javaagent.JvmRunningAgent</mainClass>
-                                </transformer>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                                    <resource>META-INF/spring.handlers</resource>
-                                </transformer>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
-                                    <resource>META-INF/spring.schemas</resource>
-                                </transformer>
-                            </transformers>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-shade-plugin</artifactId>-->
+<!--                <version>3.2.4</version>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <phase>package</phase>-->
+<!--                        <goals>-->
+<!--                            <goal>shade</goal>-->
+<!--                        </goals>-->
+<!--                        <configuration>-->
+<!--                            <filters>-->
+<!--                                <filter>-->
+<!--                                    <artifact>*:*</artifact>-->
+<!--                                    <excludes>-->
+<!--                                        <exclude>META-INF/*.SF</exclude>-->
+<!--                                        <exclude>META-INF/*.DSA</exclude>-->
+<!--                                        <exclude>META-INF/*.RSA</exclude>-->
+<!--                                    </excludes>-->
+<!--                                </filter>-->
+<!--                            </filters>-->
+<!--                            <transformers>-->
+<!--                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
+<!--                                    &lt;!&ndash; 程序主入口 &ndash;&gt;-->
+<!--                                    <mainClass>com.javaagent.JvmRunningAgent</mainClass>-->
+<!--                                </transformer>-->
+<!--                            </transformers>-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
 
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-                <version>3.3.0</version>
-                <configuration>
-                    <appendAssemblyId>false</appendAssemblyId>
-                    <descriptorRefs>
-                        <descriptorRef>jar-with-dependencies</descriptorRef>
-                    </descriptorRefs>
-                    <archive>
-                        <manifest>
-                            <!-- 此处指定main方法入口的class -->
-                            <mainClass>com.javaagent.JvmRunningAgent</mainClass>
-                        </manifest>
-                    </archive>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>make-assembly</id>
-                        <phase>install</phase>
-                        <goals>
-                            <goal>assembly</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-assembly-plugin</artifactId>-->
+<!--                <version>3.3.0</version>-->
+<!--                <configuration>-->
+<!--                    <appendAssemblyId>false</appendAssemblyId>-->
+<!--&lt;!&ndash;                    <descriptorRefs>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <descriptorRef>jar-with-dependencies</descriptorRef>&ndash;&gt;-->
+<!--&lt;!&ndash;                    </descriptorRefs>&ndash;&gt;-->
+<!--                    <descriptors>-->
+<!--                        <descriptor>src/main/assembly.xml</descriptor>-->
+<!--                    </descriptors>-->
+<!--                    <archive>-->
+<!--&lt;!&ndash;                        <manifest>&ndash;&gt;-->
+<!--&lt;!&ndash;                            &lt;!&ndash; 此处指定main方法入口的class &ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                            <mainClass>com.javaagent.JvmRunningAgent</mainClass>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <agentClass>com.javaagent.JvmRunningAgent</agentClass>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </manifest>&ndash;&gt;-->
+<!--                        <manifestFile>-->
+<!--                            src/main/resources/META-INF/MANIFEST.MF-->
+<!--                        </manifestFile>-->
+<!--                    </archive>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <id>make-assembly</id>-->
+<!--&lt;!&ndash;                        <phase>install</phase>&ndash;&gt;-->
+<!--&lt;!&ndash;                        <goals>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <goal>install</goal>&ndash;&gt;-->
+<!--&lt;!&ndash;                        </goals>&ndash;&gt;-->
+<!--                        <configuration>-->
+<!--                            <finalName>${project.name}</finalName>-->
+<!--                            <descriptor>src/main/assembly.xml</descriptor>&lt;!&ndash;配置描述文件路径&ndash;&gt;-->
+<!--                        </configuration>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
+
+<!--            <plugin>-->
+<!--                <artifactId>maven-jar-plugin</artifactId>-->
+<!--                <version>3.2.0</version>-->
+<!--                <configuration>-->
+<!--                    <archive>-->
+<!--                        <manifest>-->
+<!--                            <addClasspath>true</addClasspath>-->
+<!--                        </manifest>-->
+<!--                        <manifestEntries>-->
+<!--                            <Premain-Class>com.javaagent.JvmRunningAgent</Premain-Class>-->
+<!--                            <Agent-Class>com.javaagent.JvmRunningAgent</Agent-Class>-->
+<!--                            <Can-Redefine-Classes>true</Can-Redefine-Classes>-->
+<!--                            <Can-Retransform-Classes>true</Can-Retransform-Classes>-->
+<!--                        </manifestEntries>-->
+<!--                    </archive>-->
+<!--                </configuration>-->
+
+
+<!--            </plugin>-->
 
         </plugins>
     </build>

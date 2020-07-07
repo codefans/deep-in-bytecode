@@ -94,7 +94,6 @@
                 <version>1.7.30</version>
             </dependency>
 
-
         </dependencies>
     </dependencyManagement>
 
@@ -136,7 +135,8 @@
                             <addClasspath>true</addClasspath>
                         </manifest>
                         <manifestEntries>
-                            <Premain-Class>com.javaagent.JdPlusAgent</Premain-Class>
+                            <Premain-Class>com.javaagent.JvmRunningAgent</Premain-Class>
+                            <Agent-Class>com.javaagent.JvmRunningAgent</Agent-Class>
                             <Can-Redefine-Classes>true</Can-Redefine-Classes>
                             <Can-Retransform-Classes>true</Can-Retransform-Classes>
                         </manifestEntries>
@@ -144,7 +144,7 @@
                 </configuration>
             </plugin>
 
-        </plugins>  
+        </plugins>
         <resources> 
             <resource> 
                 <directory>src/main/resources</directory>  

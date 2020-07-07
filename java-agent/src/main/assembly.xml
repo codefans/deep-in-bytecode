@@ -1,0 +1,24 @@
+<assembly>
+    2     <id>agent-jar</id>
+    3     <formats>
+<!--    4         <format>tar.gz</format>&lt;!&ndash;打包的文件格式,也可以有：war zip&ndash;&gt;-->
+    4         <format>jar</format><!--打包的文件格式,也可以有：war zip-->
+    5     </formats>
+    6     <!--tar.gz压缩包下是否生成和项目名相同的根目录-->
+    7     <includeBaseDirectory>true</includeBaseDirectory>
+    8     <dependencySets>
+    9         <dependencySet>
+    10             <!--是否把本项目添加到依赖文件夹下-->
+    11             <useProjectArtifact>true</useProjectArtifact>
+    12             <outputDirectory>lib</outputDirectory>
+    13             <!--将scope为runtime的依赖包打包-->
+    14             <scope>runtime</scope>
+    15         </dependencySet>
+    16     </dependencySets>
+    17     <fileSets>
+    18         <fileSet>
+    19             <directory>target/classes</directory>
+    20             <outputDirectory>/</outputDirectory>
+    21         </fileSet>
+    22     </fileSets>
+    23 </assembly>

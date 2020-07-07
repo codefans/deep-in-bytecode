@@ -8,12 +8,10 @@
 package com.javaagent;
 
 
-import com.javaagent.util.ClassUtil;
+import com.codefans.bytecode.common.util.ClassUtil;
 import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
 
 import java.lang.instrument.Instrumentation;
-import java.net.MalformedURLException;
 import java.util.List;
 
 /**

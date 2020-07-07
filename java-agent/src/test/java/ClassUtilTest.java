@@ -7,9 +7,8 @@
  */
 
 
+import com.codefans.bytecode.common.util.ClassUtil;
 import com.javaagent.MyWebAppClassLoader;
-import com.javaagent.util.ClassUtil;
-import com.javaagent.util.CollectionUtil;
 import org.junit.Test;
 
 import java.net.MalformedURLException;

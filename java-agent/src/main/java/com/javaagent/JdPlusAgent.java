@@ -8,7 +8,7 @@
 package com.javaagent;
 
 
-import com.javaagent.util.DateUtil;
+import com.codefans.bytecode.common.util.DateUtil;
 
 import java.lang.instrument.Instrumentation;
 import java.util.Date;
@@ -30,7 +30,7 @@ public class JdPlusAgent {
      * @param inst
      */
     public static void premain(String agentArgs, Instrumentation inst) {
-        System.out.println("premain two args, agentArgs=" + agentArgs + ", time=" + DateUtil.formatYYYYMMDDHHMMSS(new Date()));
+        System.out.println("premain two args, agentArgs=" + agentArgs + ", time=" + DateUtil.format(new Date()));
 
         new AgentStarter(agentArgs, inst).start();
         instrumentation = inst;
@@ -51,7 +51,7 @@ public class JdPlusAgent {
      * @param agentArgs
      */
     public static void premain(String agentArgs) {
-        System.out.println("premain one arg, agentArgs=" + agentArgs + ", time=" + DateUtil.formatYYYYMMDDHHMMSS(new Date()));
+        System.out.println("premain one arg, agentArgs=" + agentArgs + ", time=" + DateUtil.format(new Date()));
     }
 
 

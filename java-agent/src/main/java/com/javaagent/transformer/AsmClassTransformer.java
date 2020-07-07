@@ -1,4 +1,4 @@
-package com.codefans.bytecode.asm;
+package com.javaagent.transformer;
 
 
 import org.objectweb.asm.ClassReader;
@@ -37,10 +37,10 @@ public class AsmClassTransformer implements ClassFileTransformer {
                 // 返回MyEnhancer增强后的字节码
                 return classWriter.toByteArray();
             }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-
 
         // return null 则不会对类进行转换
         return null;

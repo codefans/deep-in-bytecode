@@ -5,7 +5,7 @@
  * Date:     2020/4/1 11:47
  * Description: 日期处理
  */
-package com.javaagent.util;
+package com.codefans.bytecode.common.util;
 
 
 import java.text.DateFormat;
@@ -54,13 +54,13 @@ public class DateUtil {
         return formatYYYYMMDDHHMMSS_SSS(new Date(timestamp));
     }
 
-    public static String formatYYYYMMDDHHMMSS(Date date) {
+    public static String format(Date date) {
         DateFormat df = yyyyMMddHHmmssDateFormat.get();
         return df.format(date);
     }
 
     public static String formatYYYYMMDDHHMMSS(long timestamp) {
-        return formatYYYYMMDDHHMMSS(new Date(timestamp));
+        return format(new Date(timestamp));
     }
 
 }

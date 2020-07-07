@@ -5,7 +5,7 @@
  * Date:     2020/4/17 9:25
  * Description: 集合工具类
  */
-package com.javaagent.util;
+package com.codefans.bytecode.common.util;
 
 
 import java.util.List;

@@ -1,0 +1,5 @@
+Manifest-Version: 1.0
+Premain-Class: com.javaagent.JvmRunningAgent
+Agent-Class: com.javaagent.JvmRunningAgent
+Can-Redefine-Classes: true
+Can-Retransform-Classes: true

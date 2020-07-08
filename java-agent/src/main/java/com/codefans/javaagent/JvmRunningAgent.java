@@ -1,10 +1,9 @@
-package com.javaagent;
+package com.codefans.javaagent;
 
-import com.javaagent.transformer.AsmClassTransformer;
+import com.codefans.javaagent.transformer.AsmClassTransformer;
+import com.codefans.javaagent.transformer.JavassistClassTransformer;
 
-import java.lang.instrument.ClassFileTransformer;
 import java.lang.instrument.Instrumentation;
-import java.security.ProtectionDomain;
 
 /**
  * @Author: codefans
@@ -12,13 +11,6 @@ import java.security.ProtectionDomain;
  */
 
 public class JvmRunningAgent {
-
-    /**
-     * JVM启动时agent
-     */
-    public static void premain(String args, Instrumentation inst) {
-        agent0(args, inst);
-    }
 
 
     /**
@@ -55,13 +47,20 @@ public class JvmRunningAgent {
 //                }
 //            }, true);
 
-            inst.addTransformer(new AsmClassTransformer(), true);
+            inst.addTransformer(new JavassistClassTransformer(), true);
 
+//            inst.addTransformer(new AsmClassTransformer(), true);
+//
             String className = "";
             Class<?> c = null;
 
-//            找到OriginStarter类，对其进行重定义
-//            className = "com.javaagent.OriginStarter";
+            Class[] classes = inst.getAllLoadedClasses();
+            for(Class cls :classes){
+                System.out.println("getAllLoadedClasses-->" + cls.getName());
+            }
+
+////            找到OriginStarter类，对其进行重定义
+//            className = "com.codefans.javaagent.OriginStarter";
 //            c = Class.forName(className);
 //            inst.retransformClasses(c);
 //
@@ -73,6 +72,7 @@ public class JvmRunningAgent {
             System.out.println("exception:" + e);
         } catch (Error e) {
             System.out.println("error:" + e);
+            e.printStackTrace();
         }
     }
 

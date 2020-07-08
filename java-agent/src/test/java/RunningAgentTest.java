@@ -27,7 +27,7 @@ public class RunningAgentTest {
     public void runningAgentTest() throws AgentInitializationException, AgentLoadException, AttachNotSupportedException, IOException {
 
         AsmBean asmBean = new AsmBean();
-        String param = "张三,zhangsan";
+        String param = "张三zhangsan";
         String result = asmBean.doSomething(param);
         System.out.printf("param=%s, result=%s\n", param, result);
 
@@ -45,11 +45,11 @@ public class RunningAgentTest {
         // 获取运行中的JVM列表
         List<VirtualMachineDescriptor> vmList = VirtualMachine.list();
         // 需要agent的jar包路径
-        String agentJar = "D:\\github\\deep-in-bytecode\\java-agent\\target/java-agent.jar";
+        String agentJar = "G:\\github\\deep-in-bytecode\\java-agent\\target/java-agent.jar";
         for (VirtualMachineDescriptor vmd : vmList) {
             // 找到测试的JVM
 //            if (vmd.displayName().endsWith("OriginStarter")) {
-            if (vmd.displayName().equals("com.javaagent.OriginStarter")) {
+            if (vmd.displayName().equals("com.codefans.javaagent.OriginStarter")) {
                 // attach到目标ID的JVM上
                 VirtualMachine virtualMachine = VirtualMachine.attach(vmd.id());
                 // agent指定jar包到已经attach的JVM上

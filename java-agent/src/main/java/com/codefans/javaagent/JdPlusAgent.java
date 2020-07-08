@@ -5,7 +5,7 @@
  * Date:     2020/4/1 11:39
  * Description: jd plus代理
  */
-package com.javaagent;
+package com.codefans.javaagent;
 
 
 import com.codefans.bytecode.common.util.DateUtil;

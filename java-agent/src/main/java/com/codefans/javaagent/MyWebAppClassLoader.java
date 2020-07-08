@@ -5,7 +5,7 @@
  * Date:     2020/4/16 23:38
  * Description: 自定义类加载器
  */
-package com.javaagent;
+package com.codefans.javaagent;
 
 import java.io.*;
 import java.net.MalformedURLException;

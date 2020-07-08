@@ -135,8 +135,8 @@
                             <addClasspath>true</addClasspath>
                         </manifest>
                         <manifestEntries>
-                            <Premain-Class>com.javaagent.JvmRunningAgent</Premain-Class>
-                            <Agent-Class>com.javaagent.JvmRunningAgent</Agent-Class>
+                            <Premain-Class>com.codefans.javaagent.JvmStartupAgent</Premain-Class>
+                            <Agent-Class>com.codefans.javaagent.JvmRunningAgent</Agent-Class>
                             <Can-Redefine-Classes>true</Can-Redefine-Classes>
                             <Can-Retransform-Classes>true</Can-Retransform-Classes>
                         </manifestEntries>

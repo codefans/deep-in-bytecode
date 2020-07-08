@@ -5,7 +5,7 @@
  * Date:     2020/4/1 22:49
  * Description: 代理
  */
-package com.javaagent;
+package com.codefans.javaagent;
 
 
 import com.codefans.bytecode.common.util.ClassUtil;

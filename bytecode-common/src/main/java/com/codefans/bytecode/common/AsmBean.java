@@ -24,6 +24,11 @@ public class AsmBean {
      * @return
      */
     public String doSomething(String param) {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return "hello " + param;
     }
 

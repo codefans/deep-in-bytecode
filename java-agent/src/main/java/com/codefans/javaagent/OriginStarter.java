@@ -5,13 +5,9 @@
  * Date:     2020/7/7 11:24
  * Description: 启动类
  */
-package com.javaagent;
+package com.codefans.javaagent;
 
 
-import com.codefans.bytecode.common.AsmBean;
-import com.codefans.bytecode.common.util.DateUtil;
-
-import java.util.Date;
 import java.util.Random;
 
 /**
@@ -42,7 +38,7 @@ public class OriginStarter {
 //            }
 //            try {
 //                ClassLoader currentLoader = ClassLoader.getSystemClassLoader();
-//                currentLoader.loadClass("com.javaagent.OriginStarter");
+//                currentLoader.loadClass("com.codefans.javaagent.OriginStarter");
 //                currentLoader.loadClass("com.codefans.bytecode.common.AsmBean");
 //            } catch (ClassNotFoundException e) {
 //                e.printStackTrace();

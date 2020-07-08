@@ -74,7 +74,7 @@
             <artifactId>tools</artifactId>
             <version>1.8.0</version>
             <scope>system</scope>
-            <systemPath>D:/Development/Java/jdk1.8.0_221-x64/lib/tools.jar</systemPath>
+            <systemPath>H:/JavaEnvironment/Java/jdk1.8.0_74_windows_x64/lib/tools.jar</systemPath>
         </dependency>
 
     </dependencies>
@@ -105,7 +105,7 @@
 <!--                            <transformers>-->
 <!--                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">-->
 <!--                                    &lt;!&ndash; 程序主入口 &ndash;&gt;-->
-<!--                                    <mainClass>com.javaagent.JvmRunningAgent</mainClass>-->
+<!--                                    <mainClass>com.codefans.javaagent.JvmRunningAgent</mainClass>-->
 <!--                                </transformer>-->
 <!--                            </transformers>-->
 <!--                        </configuration>-->
@@ -128,8 +128,8 @@
 <!--                    <archive>-->
 <!--&lt;!&ndash;                        <manifest>&ndash;&gt;-->
 <!--&lt;!&ndash;                            &lt;!&ndash; 此处指定main方法入口的class &ndash;&gt;&ndash;&gt;-->
-<!--&lt;!&ndash;                            <mainClass>com.javaagent.JvmRunningAgent</mainClass>&ndash;&gt;-->
-<!--&lt;!&ndash;                            <agentClass>com.javaagent.JvmRunningAgent</agentClass>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <mainClass>com.codefans.javaagent.JvmRunningAgent</mainClass>&ndash;&gt;-->
+<!--&lt;!&ndash;                            <agentClass>com.codefans.javaagent.JvmRunningAgent</agentClass>&ndash;&gt;-->
 <!--&lt;!&ndash;                        </manifest>&ndash;&gt;-->
 <!--                        <manifestFile>-->
 <!--                            src/main/resources/META-INF/MANIFEST.MF-->
@@ -160,8 +160,8 @@
 <!--                            <addClasspath>true</addClasspath>-->
 <!--                        </manifest>-->
 <!--                        <manifestEntries>-->
-<!--                            <Premain-Class>com.javaagent.JvmRunningAgent</Premain-Class>-->
-<!--                            <Agent-Class>com.javaagent.JvmRunningAgent</Agent-Class>-->
+<!--                            <Premain-Class>com.codefans.javaagent.JvmRunningAgent</Premain-Class>-->
+<!--                            <Agent-Class>com.codefans.javaagent.JvmRunningAgent</Agent-Class>-->
 <!--                            <Can-Redefine-Classes>true</Can-Redefine-Classes>-->
 <!--                            <Can-Retransform-Classes>true</Can-Retransform-Classes>-->
 <!--                        </manifestEntries>-->

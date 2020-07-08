@@ -15,15 +15,32 @@ import java.security.ProtectionDomain;
 
 public class AsmClassTransformer implements ClassFileTransformer {
 
+    /** The internal form class name of the class to transform */
+    private String targetClassName;
+    /** The class loader of the class we want to transform */
+    private ClassLoader targetClassLoader;
+
+    public AsmClassTransformer(String targetClassName, ClassLoader targetClassLoader) {
+        this.targetClassName = targetClassName;
+        this.targetClassLoader = targetClassLoader;
+    }
+
+    public AsmClassTransformer() {
+    }
+
     @Override
     public byte[] transform(ClassLoader loader, String className, Class<?> classBeingRedefined, ProtectionDomain protectionDomain, byte[] classfileBuffer) throws IllegalClassFormatException {
         // 对类字节码进行操作
         // 这里需要注意，不能对classfileBuffer这个数组进行修改操作
         try {
 
-            System.out.println("className=" + className);
-
             if(className.startsWith("com/codefans")) {
+                System.out.println("AsmClassTransformer.transform(), className=" + className);
+            }
+
+//            if(targetClassName.equals(className) && targetClassLoader.equals(loader)) {
+
+//                System.out.println("start enhance class:[" + className + "]");
                 // 创建ASM ClassReader对象，导入需要增强的对象字节码
                 ClassReader reader = new ClassReader(classfileBuffer);
                 ClassWriter classWriter = new ClassWriter(ClassWriter.COMPUTE_MAXS);
@@ -36,9 +53,11 @@ public class AsmClassTransformer implements ClassFileTransformer {
 
                 // 返回MyEnhancer增强后的字节码
                 return classWriter.toByteArray();
-            }
+//            }
 
         } catch (Exception e) {
+            e.printStackTrace();
+        } catch (Error e) {
             e.printStackTrace();
         }
 

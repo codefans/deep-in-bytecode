@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: RunningAgentTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/7/7 10:56
  * Description: 运行时agent
  */
@@ -17,7 +17,7 @@ import java.util.List;
  *
  * 运行时agent
  *
- * @author caishengzhi
+ * @author codefans
  * @date 2020/07/07 10:56
  * @since 1.0.0
  */
@@ -45,7 +45,7 @@ public class RunningAgentTest {
         // 获取运行中的JVM列表
         List<VirtualMachineDescriptor> vmList = VirtualMachine.list();
         // 需要agent的jar包路径
-        String agentJar = "G:\\github\\deep-in-bytecode\\java-agent\\target/java-agent.jar";
+        String agentJar = "D:/github/deep-in-bytecode/java-agent/target/java-agent.jar";
         for (VirtualMachineDescriptor vmd : vmList) {
             // 找到测试的JVM
 //            if (vmd.displayName().endsWith("OriginStarter")) {

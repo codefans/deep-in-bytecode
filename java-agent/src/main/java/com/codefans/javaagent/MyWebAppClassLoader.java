@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: MyWebAppClassLoader
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/4/16 23:38
  * Description: 自定义类加载器
  */
@@ -17,7 +17,7 @@ import java.util.jar.JarFile;
  *
  * 自定义类加载器
  *
- * @author: caishengzhi
+ * @author: codefans
  * @Date: 2020/04/16 23:38
  * @since: 1.0.0
  */

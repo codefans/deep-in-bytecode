@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: ClassUtil
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/4/17 9:21
  * Description: 类工具
  */
@@ -20,7 +20,7 @@ import java.util.jar.JarFile;
  *
  * 类工具
  *
- * @author: caishengzhi
+ * @author: codefans
  * @Date: 2020/04/17 09:21
  * @since: 1.0.0
  */

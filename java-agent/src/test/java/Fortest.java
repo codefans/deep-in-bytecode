@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: Fortest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/4/4 10:46
  * Description: 测试
  */
@@ -13,7 +13,7 @@ import org.junit.Test;
  *
  * 测试
  *
- * @author: caishengzhi
+ * @author: codefans
  * @Date: 2020/04/04 10:46
  * @since: 1.0.0
  */

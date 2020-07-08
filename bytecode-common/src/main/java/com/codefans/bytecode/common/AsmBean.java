@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: AsmBean
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/7/6 17:30
  * Description: asm测试bean
  */
@@ -12,7 +12,7 @@ package com.codefans.bytecode.common;
  *
  * asm测试bean
  *
- * @author caishengzhi
+ * @author codefans
  * @date 2020/07/06 17:30
  * @since 1.0.0
  */

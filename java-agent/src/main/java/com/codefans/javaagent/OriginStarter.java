@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: OriginStarter
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/7/7 11:24
  * Description: 启动类
  */
@@ -14,7 +14,7 @@ import java.util.Random;
  *
  * 启动类
  *
- * @author caishengzhi
+ * @author codefans
  * @date 2020/07/07 11:24
  * @since 1.0.0
  */

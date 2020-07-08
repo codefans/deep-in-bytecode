@@ -36,6 +36,9 @@ public class LogAndPerformanceEnhancer extends ClassVisitor implements Opcodes {
         if (isIgnore(mv, access, name)) {
             return mv;
         }
+        if(!name.contains("getUserInfo")) {
+            return mv;
+        }
         return new AdviceAdapter(Opcodes.ASM8, new JSRInlinerAdapter(mv, access, name, descriptor, signature, exceptions), access, name, descriptor) {
 
 
@@ -75,6 +78,8 @@ public class LogAndPerformanceEnhancer extends ClassVisitor implements Opcodes {
                 loadLocal(argsIdentifier);
                 // 相当于调用LogAndPerformanceUtil.showMethod(long, Object[])方法
                 invokeStatic(LOG_PERFORMANCE_UTIL, Method.getMethod("void showMethod(long,Object[])"));
+                returnValue();
+
             }
 
 

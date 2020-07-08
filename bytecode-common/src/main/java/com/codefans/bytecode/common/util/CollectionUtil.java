@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: CollectionUtil
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/4/17 9:25
  * Description: 集合工具类
  */
@@ -14,7 +14,7 @@ import java.util.List;
  *
  * 集合工具类
  *
- * @author: caishengzhi
+ * @author: codefans
  * @Date: 2020/04/17 09:25
  * @since: 1.0.0
  */
@@ -32,6 +32,26 @@ public class CollectionUtil {
         }
     }
 
+    /**
+     * 判断list是否为空
+     * @param list
+     * @return
+     */
+    public static boolean isEmpty(List list) {
+        if(list == null || list.size() == 0) {
+            return true;
+        }
+        return false;
+    }
+
+    /**
+     * 判断list是否不为空
+     * @param list
+     * @return
+     */
+    public static boolean isNotEmpty(List list) {
+        return !isEmpty(list);
+    }
 
 
 }

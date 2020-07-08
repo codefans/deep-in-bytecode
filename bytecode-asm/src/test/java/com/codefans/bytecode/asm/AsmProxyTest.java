@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: AsmProxyTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/7/6 17:26
  * Description: asm代理测试
  */
@@ -15,7 +15,7 @@ import org.junit.Test;
  *
  * asm代理测试
  *
- * @author caishengzhi
+ * @author codefans
  * @date 2020/07/06 17:26
  * @since 1.0.0
  */

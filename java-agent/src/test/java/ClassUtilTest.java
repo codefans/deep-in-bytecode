@@ -1,7 +1,7 @@
 /**
  * Copyright (C), 2015-2020, 京东
  * FileName: ClassUtilTest
- * Author:   caishengzhi
+ * Author:   codefans
  * Date:     2020/4/17 18:52
  * Description: ceshi
  */
@@ -17,7 +17,7 @@ import java.net.MalformedURLException;
  *
  * ceshi
  *
- * @author: caishengzhi
+ * @author: codefans
  * @Date: 2020/04/17 18:52
  * @since: 1.0.0
  */

@@ -3,7 +3,11 @@ import com.codefans.bytecode.common.util.DateUtil;
 import com.codefans.bytecode.common.util.FileUtil;
 import com.codefans.javaagent.service.UserService;
 import com.codefans.javaagent.service.impl.UserServiceImpl;
+import com.codefans.javaagent.transformer.LogAndPerformanceUtil;
+import org.apache.logging.log4j.LogManager;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.util.Date;
@@ -14,6 +18,14 @@ import java.util.Date;
  */
 
 public class StartupAgentTest {
+
+    /**
+     * 日志
+     */
+    private static final Logger LOG = LoggerFactory.getLogger(StartupAgentTest.class);
+
+    private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(LogAndPerformanceUtil.class);
+
 
     /**
      *
@@ -32,17 +44,16 @@ public class StartupAgentTest {
         StartupAgentTest startupAgentTest = new StartupAgentTest();
         startupAgentTest.userServiceTest();
 
-        Runtime.getRuntime().addShutdownHook(new Thread() {
-            @Override
-            public void run() {
-                try {
-                    System.out.println("shutdown....");
-                    FileUtil.getInstance().close();
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        });
+//        Runtime.getRuntime().addShutdownHook(new Thread() {
+//            @Override
+//            public void run() {
+//                try {
+//                    System.out.println("shutdown....");
+//                } catch (Exception e) {
+//                    e.printStackTrace();
+//                }
+//            }
+//        });
     }
 
     private void asmBeanTest() {
@@ -75,6 +86,8 @@ public class StartupAgentTest {
                 param = "张三zhangsan";
                 result = userService.getUserInfo(param);
                 System.out.printf("userService.getUserInfo(), param=%s, result=%s, time=%s\n", param, result, DateUtil.format(new Date()));
+                LOG.info("userService.getUserInfo(), param={}, result={}, time={}", param, result, DateUtil.format(new Date()));
+                logger.info("userService.getUserInfo(), param={}, result={}, time={}", param, result, DateUtil.format(new Date()));
                 try {
                     Thread.sleep(100);
                 } catch (InterruptedException e) {

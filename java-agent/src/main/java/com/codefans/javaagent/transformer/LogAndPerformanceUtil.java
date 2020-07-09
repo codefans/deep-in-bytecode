@@ -1,10 +1,9 @@
 package com.codefans.javaagent.transformer;
 
-import com.codefans.bytecode.common.util.FileUtil;
+import org.apache.logging.log4j.LogManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -15,6 +14,7 @@ import java.util.Arrays;
 public class LogAndPerformanceUtil {
 
     private static final Logger LOG = LoggerFactory.getLogger(LogAndPerformanceUtil.class);
+    private static final org.apache.logging.log4j.Logger logger = LogManager.getLogger(LogAndPerformanceUtil.class);
 
     // 实现静态方法
     public static void showMethod(long startTime, Object[] Args) {
@@ -22,17 +22,12 @@ public class LogAndPerformanceUtil {
             String logInfo = "方法耗时:" + (System.nanoTime() - startTime) / 1000000 + "ms, 方法入参：" + Arrays.toString(Args);
             System.out.println(logInfo);
             LOG.info("showMethod, logInfo={}", logInfo);
-//            FileUtil.getInstance().getLogger("D:/Logs/agent.log");
-//            FileUtil.getInstance().append(logInfo);
+            logger.info("showMethod, logInfo={}", logInfo);
         } catch (Exception e) {
             e.printStackTrace();
             LOG.error("showMethod方法异常:", e);
+            logger.error("showMethod方法异常:", e);
         } finally {
-//            try {
-//                FileUtil.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
         }
     }
 

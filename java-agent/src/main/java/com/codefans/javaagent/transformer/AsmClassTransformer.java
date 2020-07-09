@@ -34,7 +34,7 @@ public class AsmClassTransformer implements ClassFileTransformer {
         // 这里需要注意，不能对classfileBuffer这个数组进行修改操作
         try {
 
-            if(className.startsWith("com/codefans")) {
+            if(className != null && className.startsWith("com/codefans")) {
                 System.out.println("AsmClassTransformer.transform(), className=" + className);
             }
 

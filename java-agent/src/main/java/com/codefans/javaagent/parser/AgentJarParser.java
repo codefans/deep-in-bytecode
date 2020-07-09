@@ -46,7 +46,6 @@ public class AgentJarParser {
             Enumeration<JarEntry> enumeration = jarFile.entries();
             JarEntry jarEntry = null;
             String entryName = "";
-            Class cls = null;
             List<String> classList = new ArrayList<>();
 
             while (enumeration.hasMoreElements()) {
@@ -60,8 +59,6 @@ public class AgentJarParser {
                     if (entryName.endsWith("LogAndPerformanceUtil")) {
                         System.out.println("加载[LogAndPerformanceUtil]这个类会抛异常");
                     }
-//                    cls = classLoader.loadClass(entryName);
-                    System.out.println("clsName=" + entryName + ", className=" + cls.getName());
                     classList.add(entryName);
 
                 } else if (entryName.equals("log4j2_async_logger.xml")) {
@@ -93,8 +90,6 @@ public class AgentJarParser {
             Enumeration<JarEntry> enumeration = jarFile.entries();
             JarEntry jarEntry = null;
             String entryName = "";
-            Class cls = null;
-
 
             while (enumeration.hasMoreElements()) {
                 jarEntry = enumeration.nextElement();
@@ -102,13 +97,12 @@ public class AgentJarParser {
                     continue;
                 }
                 entryName = jarEntry.getName();
-                if (entryName.endsWith(".class")) {
+                System.out.println("entryName-->" + entryName);
+                if (entryName.endsWith(".class") && !entryName.startsWith("META-INF")) {
                     entryName = formatClassName(entryName);
                     if (entryName.endsWith("LogAndPerformanceUtil")) {
                         System.out.println("加载[LogAndPerformanceUtil]这个类会抛异常");
                     }
-//                    cls = classLoader.loadClass(entryName);
-                    System.out.println("clsName=" + entryName + ", className=" + cls.getName());
                     classList.add(entryName);
 
                 }

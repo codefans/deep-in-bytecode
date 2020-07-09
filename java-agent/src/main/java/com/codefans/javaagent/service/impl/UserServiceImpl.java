@@ -9,6 +9,8 @@ package com.codefans.javaagent.service.impl;
 
 
 import com.codefans.javaagent.service.UserService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.Random;
 
@@ -22,6 +24,8 @@ import java.util.Random;
  */
 public class UserServiceImpl implements UserService {
 
+    private static final Logger LOG = LoggerFactory.getLogger(UserServiceImpl.class);
+
     /**
      *
      * @param name
@@ -30,6 +34,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public String getUserInfo(String name) {
         int randomInt = new Random().nextInt(1000);
+        LOG.info("randomInt={}", randomInt);
         try {
             Thread.sleep(randomInt);
         } catch (InterruptedException e) {

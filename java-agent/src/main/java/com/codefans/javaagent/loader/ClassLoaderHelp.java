@@ -47,18 +47,21 @@ public class ClassLoaderHelp {
 //        URL url = new URL("file:" + jarPath);
 //        ClassLoader classLoader = new URLClassLoader(new URL[]{url});//自己定义的classLoader类，把外部路径也加到load路径里，使系统去该路经load对象
 
+        String className = "";
         try {
             ClassLoader classLoader = Thread.currentThread().getContextClassLoader();
-            String className = "";
+
             for(int i = 0; i < classList.size(); i ++) {
                 className = classList.get(i);
                 classLoader.loadClass(className);
             }
         } catch (Exception e) {
             LOG.error("类加载异常,", e);
+            System.out.println("className[" + className + "]加载异常!");
             e.printStackTrace();
         } catch (Error e) {
             LOG.error("类加载错误,", e);
+            System.out.println("className[" + className + "]加载错误!");
             e.printStackTrace();
         }
     }
